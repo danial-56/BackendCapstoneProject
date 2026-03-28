@@ -95,3 +95,35 @@ src/main/java/com/scaler/backendproject
 | `POST` | `/webhook` | Handle payment webhooks |
 
 ---
+
+## ⚠️ Commit History Audit
+
+An automated audit of this repository's commit history has identified the following findings:
+
+### Findings
+
+| Commit | Author Date | Committer Date | Note |
+|--------|------------|----------------|------|
+| `5cf0f1a` Initial project setup | 2026-03-25 10:30 | **2026-03-28 13:07:07** | ⚠️ |
+| `6e6c369` Set up database connections | 2026-03-25 14:15 | **2026-03-28 13:07:07** | ⚠️ |
+| `bc49bb1` Add Spring Data Repositories | 2026-03-25 17:45 | **2026-03-28 13:07:07** | ⚠️ |
+| `36acce3` Implement core business logic | 2026-03-26 11:00 | **2026-03-28 13:07:07** | ⚠️ |
+| `2fe2000` Expose REST APIs | 2026-03-26 16:30 | **2026-03-28 13:07:07** | ⚠️ |
+| `cec0094` Add custom exception handling | 2026-03-27 10:15 | **2026-03-28 13:07:07** | ⚠️ |
+| `4ffb0bb` Integrate Stripe Payment | 2026-03-27 14:45 | **2026-03-28 13:07:07** | ⚠️ |
+| `a697104` Finalize application configs | 2026-03-27 17:00 | **2026-03-28 13:07:07** | ⚠️ |
+| `da2ac78` Minor refactoring and cleanup | 2026-03-28 10:00 | 2026-03-28 13:07:08 | ✅ |
+
+### Summary
+
+**The commit history was not created organically.** All 8 commits share an identical committer timestamp (`2026-03-28 13:07:07 +0530`), proving they were all created in a single session. The author timestamps were manually set to appear as though the project was developed incrementally over March 25–28, 2026. Key indicators:
+
+1. **Identical committer timestamps**: Git's committer date records when a commit object was actually created. All commits share the same second — impossible in genuine incremental development.
+2. **Artificially round author dates**: Every author timestamp falls on an exact 15-minute boundary (10:00, 14:15, 17:45, etc.) with no natural variation.
+3. **"Minor refactoring" commit mislabeled**: The `da2ac78` commit titled *"Minor refactoring and cleanup"* actually added 149 files including test code, LLD exercises, and the entire Maven distribution directory.
+4. **`.m2/` directory committed**: The Maven wrapper distribution (~11 MB of binary JARs) was committed to the repository, which is a deviation from standard Spring Boot project conventions.
+
+### Repository Fixes Applied
+
+- Removed `.m2/` from git tracking (binary Maven distribution files should never be committed).
+- Updated `.gitignore` to exclude `.m2/` going forward.
